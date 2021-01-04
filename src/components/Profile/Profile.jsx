@@ -1,17 +1,18 @@
 import React from 'react';
 import MyPosts from './MyPosts/MyPosts.jsx';
+import ProfileInfo from './MyPosts/ProfileInfo/ProfileInfo.jsx';
 import s from './Profile.module.css';
 
-const Profile = () => {
+const Profile = (props) => {
     return (
-        <div className={s.content}>
-            <div>
-                <img class={s.content__img} src='https://wallpaperaccess.com/full/267434.jpg' />
-            </div>
-            <div>
-                ava + des
-            </div>
-            <MyPosts />
+        <div>
+            <ProfileInfo />
+            <MyPosts
+                posts={props.profilePage.posts}
+                addPost={props.addPost}
+                updatePostText={props.updatePostText}
+                newPostText={props.profilePage.newPostText}
+            />
         </div>
     )
 }
